@@ -327,17 +327,23 @@ export class PushNotificationService {
 
   async initializeOneSignal() {
     if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
-      const OneSignal = (await import('react-onesignal')).default
-      
-      await OneSignal.init({
-        appId: this.oneSignalAppId,
-        safari_web_id: this.oneSignalAppId,
-        notifyButton: {
-          enable: true
-        }
-      })
+      try {
+        // @ts-ignore - Optional dependency that may not be installed
+        const OneSignal = (await import('react-onesignal')).default
+        
+        await OneSignal.init({
+          appId: this.oneSignalAppId,
+          safari_web_id: this.oneSignalAppId,
+          notifyButton: {
+            enable: true
+          }
+        })
 
-      return OneSignal
+        return OneSignal
+      } catch (error) {
+        console.warn('OneSignal not available:', error)
+        return null
+      }
     }
   }
 

@@ -99,12 +99,12 @@ export class CropDiseaseDetector {
 
   private preprocessImage(imageData: ImageData | HTMLImageElement): tf.Tensor {
     return tf.tidy(() => {
-      let tensor: tf.Tensor
+      let tensor: tf.Tensor3D
       
       if (imageData instanceof ImageData) {
-        tensor = tf.browser.fromPixels(imageData)
+        tensor = tf.browser.fromPixels(imageData) as tf.Tensor3D
       } else {
-        tensor = tf.browser.fromPixels(imageData)
+        tensor = tf.browser.fromPixels(imageData) as tf.Tensor3D
       }
       
       // Resize to 224x224
