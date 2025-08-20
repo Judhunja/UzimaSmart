@@ -4,6 +4,7 @@ import { CarbonTracker } from '@/components/sections/CarbonTracker'
 import { AgricultureDashboard } from '@/components/sections/AgricultureDashboard'
 import { EnergyMonitor } from '@/components/sections/EnergyMonitor'
 import { ConservationAlerts } from '@/components/sections/ConservationAlerts'
+import CarbonCreditDashboard from '@/components/sections/CarbonCreditDashboard'
 
 export default function HomePage() {
   return (
@@ -11,6 +12,7 @@ export default function HomePage() {
       <Hero />
       <Features />
       <CarbonTracker />
+      <CarbonCreditDashboard />
       <AgricultureDashboard />
       <EnergyMonitor />
       <ConservationAlerts />
