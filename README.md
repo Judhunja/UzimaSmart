@@ -1,139 +1,187 @@
-# 🌱 UzimaSmart - AI-Powered Climate Solutions PWA
+# � UzimaSmart - Kenya Climate Monitoring PWA
 
-A comprehensive Progressive Web App (PWA) that integrates AI-powered climate solutions focused on carbon tracking, sustainable agriculture, clean energy optimization, and environmental conservation tailored for Kenya.
+A comprehensive Progressive Web Application (PWA) and SMS/USSD-enabled platform that addresses climate change in Kenya by combining AI analytics, satellite data from Google Earth Engine (GEE), and community engagement for climate resilience and sustainable development.
 
 ![UzimaSmart Banner](./public/images/banner.png)
 
-## 🌍 Vision
+## � Mission
 
-Empowering Kenyan farmers, conservationists, and energy managers with actionable insights to drive climate resilience and sustainable development through cutting-edge AI technology.
+Empowering Kenyan communities, farmers, and decision-makers with real-time climate intelligence through accessible technology that works across all connectivity levels - from smartphones to basic feature phones.
 
-## ✨ Key Features
+## ✨ Core Features
 
-### 🌿 Carbon Tracking
-- **Blockchain-backed carbon credit tokenization** with transparent verification
-- **IPFS storage** for immutable records
-- **Real-time notifications** on earned carbon credits
-- **Marketplace integration** for trading credits
+### 📡 Satellite Climate Monitoring
+- **NASA GIBS integration** for NDVI, rainfall, and temperature data
+- **Real-time drought analysis** with early warning systems
+- **Historical climate trend analysis** for all 47 Kenyan counties
+- **Agricultural suitability mapping** based on climate conditions
 
-### 🌾 Sustainable Agriculture
-- **AI crop disease detection** using TensorFlow.js
-- **Satellite NDVI monitoring** (NASA Landsat, Sentinel Hub)
-- **Climate-smart farming advisories** personalized for Kenyan conditions
-- **IoT sensor integration** via MQTT for real-time field monitoring
-
-### ⚡ Clean Energy Optimization
-- **Real-time energy consumption monitoring**
-- **AI-driven demand forecasting** for smart grid optimization
-- **Solar production tracking** and efficiency optimization
-- **Cost savings analysis** and environmental impact reporting
-
-### 🛡️ Environmental Conservation
-- **AI satellite imagery analysis** for deforestation detection
-- **Illegal logging alerts** with high-accuracy threat identification
-- **Ecosystem health monitoring** with real-time conservation alerts
-- **Wildlife corridor protection** through advanced monitoring
-
-### 📱 Communication & Alerts
-- **Africa's Talking SMS API** for weather warnings and crop health alerts
-- **Web Push Notifications** for real-time online alerts
+### �️ Community-Driven Reporting
+- **Crowdsourced climate events** (floods, droughts, storms)
+- **Location-based incident reporting** with GPS coordinates
+- **Community verification system** for data quality
 - **Multi-language support** (English/Swahili)
-- **Voice navigation** for accessibility
 
-## 🛠️ Technology Stack
+### 📱 Universal Access
+- **Progressive Web App** with offline capabilities
+- **SMS/USSD services** via Africa's Talking API (*384*XX# menu)
+- **Voice notifications** for accessibility
+- **Low-bandwidth optimization** for rural connectivity
 
-### Frontend
-- **Next.js 14+** with App Router for SEO and performance
-- **React 18+** with TypeScript for type safety
-- **Tailwind CSS** for responsive, mobile-first design
-- **PWA capabilities** with service workers and offline support
+### 🤖 AI-Powered Analytics
+- **Machine learning predictions** for climate patterns
+- **Crop suitability recommendations** based on climate data
+- **Risk assessment algorithms** for climate hazards
+- **Automated alert generation** for weather emergencies
 
-### AI & Machine Learning
-- **TensorFlow.js** for client-side AI processing
-- **Hugging Face models** for advanced ML capabilities
-- **Microsoft FarmVibes** for agricultural AI
-- **Custom trained models** for Kenyan-specific conditions
+### 🚨 Smart Alert System
+- **County-specific weather warnings** via SMS and push notifications
+- **Severity-based alert escalation** (low, medium, high, critical)
+- **User subscription management** for targeted alerts
+- **Multi-channel notification delivery** (SMS, USSD, web push)
 
-### Backend & Database
-- **Node.js/Express** hosted on Vercel/Railway
-- **Supabase** for real-time database and authentication
-- **MongoDB Atlas** for document storage (free tier)
-- **Prisma ORM** for database management
+## 🏗️ Architecture
 
-### Blockchain & Storage
-- **Web3.Storage/IPFS** for decentralized, immutable data storage
-- **Ethereum/Polygon** for carbon credit tokenization
-- **Smart contracts** for transparent carbon trading
+### Backend (FastAPI + Python)
+- **FastAPI** with async support for high performance
+- **PostgreSQL + PostGIS** for geospatial data management
+- **Redis** for caching and session management
+- **Google Earth Engine Python API** for satellite data
+- **Africa's Talking API** for SMS/USSD services
 
-### APIs & Integrations
-- **NASA Landsat API** for satellite imagery
-- **Sentinel Hub** for vegetation monitoring
-- **OpenWeatherMap** for weather data
-- **Africa's Talking** for SMS communications
-- **OneSignal** for push notifications
+### Frontend (Next.js + React)
+- **Next.js 14** with App Router and TypeScript
+- **React 18** with modern hooks and state management
+- **Tailwind CSS** for responsive design
+- **Progressive Web App** with service workers
+- **Leaflet maps** for interactive geospatial visualization
 
-### IoT & Real-time Data
-- **MQTT** for IoT sensor data collection
-- **WebSocket** connections for real-time updates
-- **Background sync** for offline data synchronization
+### Infrastructure
+- **Docker containerization** with multi-service architecture
+- **Redis caching** for performance optimization
+- **Health checks** and monitoring for all services
+- **Horizontal scaling** support with load balancers
 
-## 🚀 Getting Started
+### Machine Learning & AI
+- **TensorFlow** and **scikit-learn** for climate predictions
+- **Time series analysis** for climate pattern recognition
+- **Anomaly detection** for extreme weather events
+- **Custom models** trained on Kenyan climate data
+
+### External Integrations
+- **NASA GIBS** for satellite imagery and climate data
+- **Africa's Talking** for SMS/USSD communication services
+- **PostgreSQL + PostGIS** for geospatial data storage
+- **Redis** for high-performance caching
+
+## 🚀 Quick Start
 
 ### Prerequisites
 
-- Node.js 18+ and npm
-- Git
-- Account credentials for required APIs (see Environment Setup)
+- Docker and Docker Compose
+- Python 3.11+ (for local development)
+- Node.js 18+ (for local development)
+- Google Earth Engine account
+- Africa's Talking API account
 
-### Installation
+### 1. Clone and Setup
 
-1. **Clone the repository**
 ```bash
 git clone https://github.com/yourusername/uzima-smart.git
-cd uzima-smart
+cd UzimaSmart
 ```
 
-2. **Install dependencies**
+### 2. Environment Configuration
+
 ```bash
-npm install --legacy-peer-deps
+# Copy environment template
+cp .env.example .env
+
+# Edit .env with your API keys:
+# - DATABASE_URL (PostgreSQL with PostGIS)
+# - REDIS_URL
+# - GOOGLE_EARTH_ENGINE_SERVICE_ACCOUNT (JSON key)
+# - AFRICAS_TALKING_API_KEY
+# - AFRICAS_TALKING_USERNAME
 ```
 
-3. **Environment setup**
+### 3. Quick Start with Docker
+
 ```bash
-cp .env.example .env.local
-# Edit .env.local with your API keys and credentials
+# Make setup script executable
+chmod +x setup-dev.sh
+
+# Run automated setup
+./setup-dev.sh
+
+# Or use Make commands
+make setup    # Initial setup
+make dev      # Start development environment
 ```
 
-4. **Run development server**
+### 4. Manual Setup
+
 ```bash
+# Start databases
+docker-compose up -d postgres redis
+
+# Backend setup
+cd backend
+pip install -r requirements.txt
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+
+# Frontend setup (in new terminal)
+cd frontend
+npm install
 npm run dev
 ```
 
-5. **Open in browser**
+### 5. Access Applications
+
+- **Frontend**: http://localhost:3000
+- **Backend API**: http://localhost:8000
+- **API Documentation**: http://localhost:8000/docs
+- **Interactive API**: http://localhost:8000/redoc
+
+## 📱 USSD Menu System
+
+Dial `*384*12345#` to access:
+
 ```
-http://localhost:3000
+🌍 UzimaSmart Climate
+1. County Climate Info
+2. Report Weather Event  
+3. Get Weather Alerts
+4. Subscribe to Updates
+5. Crop Recommendations
+0. Help & Info
 ```
 
-### Environment Variables
+## 🗃️ Environment Variables
 
-Create a `.env.local` file with the following variables:
+Create `.env` file with these required variables:
 
-```env
-# Supabase Configuration
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```bash
+# Database Configuration
+DATABASE_URL=postgresql://username:password@localhost:5432/climate_db
+REDIS_URL=redis://localhost:6379/0
 
-# Weather API
-OPENWEATHER_API_KEY=your_openweather_api_key
+# NASA GIBS Configuration (Optional - for enhanced access)
+NASA_EARTHDATA_USERNAME=your_earthdata_username
+NASA_EARTHDATA_PASSWORD=your_earthdata_password
 
-# Satellite Data
-NASA_API_KEY=your_nasa_api_key
-SENTINEL_HUB_CLIENT_ID=your_sentinel_hub_client_id
-SENTINEL_HUB_CLIENT_SECRET=your_sentinel_hub_client_secret
-
-# SMS Integration
-AFRICAS_TALKING_USERNAME=your_username
+# Africa's Talking API
 AFRICAS_TALKING_API_KEY=your_api_key
+AFRICAS_TALKING_USERNAME=your_username
+
+# Application Settings
+ENVIRONMENT=development
+DEBUG=true
+SECRET_KEY=your_secret_key
+
+# Optional: External APIs
+OPENWEATHER_API_KEY=your_openweather_key
+```
 
 # IPFS Storage
 WEB3_STORAGE_TOKEN=your_web3_storage_token
@@ -150,57 +198,78 @@ HUGGING_FACE_API_KEY=your_hugging_face_api_key
 ### Offline Capabilities
 - **Service workers** with Workbox for intelligent caching
 - **Background sync** for data synchronization when online
-- **Offline-first design** for low-connectivity areas
-- **Cached AI models** for disease detection without internet
-
-### Mobile Optimization
-- **App-like experience** with PWA manifest
-- **Touch-friendly interface** optimized for mobile devices
-- **Fast loading** with optimized assets and code splitting
-- **Push notifications** for real-time alerts
-
-### Performance
-- **Lighthouse score 95+** for performance, accessibility, SEO
-- **Image optimization** with Next.js Image component
-- **Code splitting** and lazy loading for faster initial load
-- **CDN delivery** via Vercel Edge Network
-
 ## 🏗️ Project Structure
 
 ```
-uzima-smart/
-├── app/                    # Next.js 14 App Router
-│   ├── layout.tsx         # Root layout with PWA setup
-│   ├── page.tsx           # Homepage
-│   ├── providers.tsx      # Context providers
-│   └── offline/           # Offline fallback page
-├── components/
-│   ├── layout/            # Navigation, layout components
-│   ├── sections/          # Main feature sections
-│   └── ui/                # Reusable UI components
-├── lib/
-│   ├── ai.ts             # TensorFlow.js AI utilities
-│   ├── integrations.ts   # API integrations
-│   └── utils.ts          # Utility functions
-├── public/
-│   ├── manifest.json     # PWA manifest
-│   ├── icons/            # PWA icons
-│   └── images/           # Static assets
-├── styles/
-│   └── globals.css       # Global styles with Tailwind
-├── types/
-│   └── index.ts          # TypeScript type definitions
-└── next.config.js        # Next.js + PWA configuration
+UzimaSmart/
+├── backend/                           # FastAPI Backend
+│   ├── app/
+│   │   ├── main.py                   # FastAPI application entry
+│   │   ├── models/                   # Database models
+│   │   │   └── models.py            # SQLAlchemy models
+│   │   ├── api/                     # API routes
+│   │   │   └── routes/
+│   │   │       ├── climate.py       # Climate data endpoints
+│   │   │       ├── community.py     # Community reports
+│   │   │       ├── sms.py          # SMS/USSD endpoints
+│   │   │       └── counties.py     # County information
+│   │   ├── services/                # Business logic
+│   │   │   ├── gee_service.py      # Google Earth Engine
+│   │   │   ├── sms_service.py      # SMS/USSD service
+│   │   │   ├── ai_service.py       # AI/ML predictions
+│   │   │   └── alert_service.py    # Alert management
+│   │   └── utils/                   # Utilities
+│   │       ├── database.py         # DB connections
+│   │       └── cache.py            # Redis cache utils
+│   ├── requirements.txt             # Python dependencies
+│   └── Dockerfile                   # Backend container
+├── frontend/                         # Next.js Frontend
+│   ├── src/
+│   │   ├── app/                     # Next.js 14 App Router
+│   │   │   ├── layout.tsx          # Root layout
+│   │   │   ├── page.tsx            # Homepage
+│   │   │   └── county/             # County pages
+│   │   ├── components/              # React components
+│   │   │   ├── ClimateMap.tsx      # Interactive map
+│   │   │   ├── CountySelector.tsx  # County dropdown
+│   │   │   ├── WeatherAlerts.tsx   # Alert display
+│   │   │   └── CommunityReports.tsx # Report interface
+│   │   ├── services/                # API services
+│   │   │   └── api.ts              # API client
+│   │   └── types/                   # TypeScript types
+│   ├── public/                      # Static assets
+│   │   ├── manifest.json           # PWA manifest
+│   │   └── icons/                  # PWA icons
+│   ├── package.json                # Node dependencies
+│   └── Dockerfile                  # Frontend container
+├── docker-compose.yml               # Multi-service orchestration
+├── init-db.sql                     # Database initialization
+├── setup-dev.sh                    # Development setup script
+├── Makefile                        # Development commands
+└── .env.example                    # Environment template
 ```
 
-## 🌍 Kenyan Context & Localization
+## 🌍 Kenyan Focus & Localization
 
-### Local Adaptation
-- **County-specific** weather and agricultural data
-- **Crop varieties** common in Kenyan agriculture (maize, beans, tea, coffee)
-- **Local language support** (English and Swahili)
-- **Kenya Power integration** for energy grid data
-- **Kenyan Shilling (KES)** currency integration
+### Geographic Coverage
+- **All 47 Kenyan counties** with specific climate profiles
+- **Major cities**: Nairobi, Mombasa, Kisumu, Nakuru, Eldoret
+- **Agricultural zones**: Central, Rift Valley, Western regions
+- **Coastal areas**: Mombasa, Kilifi, Kwale counties
+- **Arid regions**: Northern Kenya (Turkana, Marsabit, Wajir)
+
+### Local Context
+- **Crop varieties**: Maize, beans, tea, coffee, sugarcane, wheat
+- **Climate seasons**: Long rains (March-May), short rains (October-December)
+- **Languages**: English and Swahili interface support
+- **Connectivity**: Optimized for varying network conditions
+- **Mobile money**: Integration-ready for M-Pesa payments
+
+### Agricultural Calendar
+- **Planting seasons** based on rainfall predictions
+- **Harvest timing** optimization using NDVI data
+- **Pest and disease** monitoring for major crops
+- **Market price integration** for crop planning
 
 ### Accessibility
 - **Low-bandwidth optimization** for rural internet connections
@@ -229,54 +298,156 @@ uzima-smart/
 ## 🔐 Security & Privacy
 
 ### Data Protection
-- **End-to-end encryption** for sensitive farmer data
-- **GDPR compliance** with user consent management
-- **Local data governance** respecting Kenyan data laws
-- **Blockchain transparency** for carbon credit verification
+## 🔧 Development Commands
 
-### Authentication
-- **Supabase Auth** with phone number verification
-- **Role-based access control** (farmer, conservationist, energy manager)
-- **Secure API keys** management
-- **JWT token** based authentication
+### Make Commands
+
+```bash
+make help        # Show all available commands
+make setup       # Initial project setup
+make dev         # Start development environment
+make build       # Build Docker images
+make start       # Start services in background
+make stop        # Stop all services
+make logs        # View logs from all services
+make test        # Run all tests
+make clean       # Clean up containers and volumes
+```
+
+### Manual Commands
+
+```bash
+# Backend development
+cd backend
+pip install -r requirements.txt
+uvicorn app.main:app --reload --port 8000
+
+# Frontend development  
+cd frontend
+npm install
+npm run dev
+
+# Database operations
+docker-compose exec postgres psql -U postgres -d climate_db
+```
+
+## 🧪 Testing
+
+### Automated Testing
+
+```bash
+# Run all tests
+make test
+
+# Test specific components
+docker-compose exec backend python -m pytest tests/ -v
+docker-compose exec frontend npm test
+
+# API testing
+curl http://localhost:8000/health
+curl http://localhost:8000/api/v1/counties
+```
+
+### Manual Testing
+
+- **USSD Testing**: Dial `*384*12345#` on Africa's Talking simulator
+- **SMS Testing**: Send SMS to test shortcode for weather alerts
+- **PWA Testing**: Use Chrome DevTools to test offline functionality
+- **Performance**: Run Lighthouse audits for optimization
 
 ## 📊 Monitoring & Analytics
 
-### Performance Monitoring
-- **Real-time error tracking** with detailed reporting
-- **Performance metrics** for app optimization
-- **User analytics** respecting privacy guidelines
-- **Carbon impact tracking** for sustainability reporting
+### Application Monitoring
+- **Health checks** at `/health` endpoint for all services
+- **Performance metrics** via FastAPI built-in monitoring
+- **Error tracking** with structured logging
+- **Service status** monitoring with Docker health checks
 
-### Business Intelligence
-- **Farmer usage patterns** for service improvement
-- **Carbon credit marketplace** analytics
-- **Energy savings** measurement and reporting
-- **Conservation impact** tracking
+### Climate Data Analytics
+- **Historical trend analysis** for all 47 counties
+- **Anomaly detection** for extreme weather events
+- **Agricultural impact assessment** based on climate patterns
+- **Community engagement metrics** from reports and subscriptions
+
+## 🔐 Security & Privacy
+
+### Data Protection
+- **PostgreSQL encryption** at rest and in transit
+- **API authentication** with JWT tokens
+- **Rate limiting** to prevent abuse
+- **Input validation** on all endpoints
+- **Secure headers** with FastAPI security middleware
+
+### Privacy Compliance
+- **User consent management** for data collection
+- **Data anonymization** for analytics
+- **Local data sovereignty** respecting Kenyan regulations
+- **Transparent data usage** policies
 
 ## 🤝 Contributing
 
-We welcome contributions from developers, agricultural experts, climate scientists, and local communities!
+We welcome contributions from developers, climate scientists, agricultural experts, and local communities!
 
-### Development Setup
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+### How to Contribute
 
-### Contribution Guidelines
-- Follow TypeScript best practices
-- Include tests for new features
-- Update documentation for API changes
-- Respect accessibility guidelines
-- Consider offline functionality for new features
+1. **Fork the repository**
+2. **Create a feature branch** (`git checkout -b feature/climate-improvement`)
+3. **Make your changes** following our coding standards
+4. **Add tests** for new functionality
+5. **Update documentation** as needed
+6. **Submit a pull request** with detailed description
+
+### Contribution Areas
+
+- **Climate data sources** integration
+- **Mobile app optimization** for Kenya's connectivity
+- **Swahili language** translations
+- **Agricultural expertise** for crop recommendations
+- **UI/UX improvements** for rural users
+- **Performance optimizations** for low-bandwidth areas
+
+### Development Guidelines
+
+- **Code quality**: Follow TypeScript/Python best practices
+- **Testing**: Include unit and integration tests
+- **Documentation**: Update relevant docs and comments
+- **Accessibility**: Ensure features work for all users
+- **Offline support**: Consider functionality without internet
+
+## 📞 Support & Community
+
+### Get Help
+
+- **Documentation**: Comprehensive guides in `/docs` folder
+- **API Reference**: Available at `/docs` endpoint when running
+- **Testing Guide**: See `TESTING.md` for detailed testing procedures
+- **Issues**: Report bugs and request features on GitHub
+
+### Community Channels
+
+- **GitHub Discussions**: For technical questions and feature requests
+- **Community Reports**: Built-in reporting system for climate events
+- **SMS Support**: Text "HELP" to get support via SMS
+- **Local Partners**: Working with Kenyan agricultural and climate organizations
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
+
+- **Google Earth Engine** for providing satellite climate data
+- **Africa's Talking** for SMS/USSD communication infrastructure
+- **Kenyan Meteorological Department** for weather data and validation
+- **Local farming communities** for feedback and climate event reporting
+- **Climate change researchers** contributing to prediction models
+- **Open source community** for the foundational technologies
+
+---
+
+**Built with ❤️ for Kenya's climate resilience**
+
+*UzimaSmart - Empowering communities with climate intelligence through accessible technology*
 
 - **NASA** for free satellite data access
 - **Sentinel Hub** for vegetation monitoring APIs

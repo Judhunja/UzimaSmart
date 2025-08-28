@@ -10,7 +10,8 @@ import {
   PuzzlePieceIcon,
   BoltIcon,
   ShieldCheckIcon,
-  CogIcon
+  CogIcon,
+  CurrencyDollarIcon
 } from '@heroicons/react/24/outline'
 
 export function Navigation() {
@@ -19,6 +20,7 @@ export function Navigation() {
   const navigation = [
     { name: 'Dashboard', href: '/dashboard', icon: HomeIcon },
     { name: 'Carbon Tracker', href: '/carbon', icon: ChartBarIcon },
+    { name: 'Carbon Credits', href: '/carbon-credits', icon: CurrencyDollarIcon },
     { name: 'Agriculture', href: '/agriculture', icon: PuzzlePieceIcon },
     { name: 'Energy', href: '/energy', icon: BoltIcon },
     { name: 'Conservation', href: '/conservation', icon: ShieldCheckIcon },

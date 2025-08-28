@@ -1,5 +1,16 @@
 // IPFS Storage Infrastructure for Carbon Credit Verification
-import { Web3Storage } from 'web3.storage'
+let Web3Storage: any = null
+
+// Dynamically import Web3Storage to handle potential server-side issues
+try {
+  if (typeof window !== 'undefined') {
+    import('web3.storage').then(module => {
+      Web3Storage = module.Web3Storage
+    })
+  }
+} catch (error) {
+  console.warn('Web3Storage not available:', error)
+}
 
 export interface CarbonCreditRecord {
   reportId: string
@@ -35,7 +46,7 @@ export interface CarbonCreditRecord {
 }
 
 export class IPFSCarbonStorage {
-  private client: Web3Storage | null = null
+  private client: any = null
 
   constructor() {
     this.initializeClient()
@@ -49,7 +60,9 @@ export class IPFSCarbonStorage {
     }
     
     try {
-      this.client = new Web3Storage({ token })
+      if (Web3Storage) {
+        this.client = new Web3Storage({ token })
+      }
     } catch (error) {
       console.error('Failed to initialize Web3.Storage client:', error)
     }
@@ -172,7 +185,7 @@ export class IPFSCarbonStorage {
       }
 
       const files = await res.files()
-      return files.map(file => file.name)
+      return files.map((file: any) => file.name)
     } catch (error) {
       console.error('Failed to list files from IPFS:', error)
       return []
