@@ -1,6 +1,6 @@
 # � UzimaSmart - Kenya Climate Monitoring PWA
 
-A comprehensive Progressive Web Application (PWA) and SMS/USSD-enabled platform that addresses climate change in Kenya by combining AI analytics, satellite data from Google Earth Engine (GEE), and community engagement for climate resilience and sustainable development.
+A comprehensive Progressive Web Application (PWA) and SMS enabled platform that addresses climate change in Kenya by combining AI analytics, satellite data from NASA GIBS, and community engagement for climate resilience and sustainable development.
 
 ![UzimaSmart Banner](./public/images/banner.png)
 
@@ -177,20 +177,6 @@ The main dashboard (http://localhost:3000) now includes:
   - Economic impact assessments
 
 - **County-Specific Analysis**: Select any of Kenya's 47 counties for localized insights
-
-## 📱 USSD Menu System
-
-Dial `*384*12345#` to access:
-
-```
-🌍 UzimaSmart Climate
-1. County Climate Info
-2. Report Weather Event  
-3. Get Weather Alerts
-4. Subscribe to Updates
-5. Crop Recommendations
-0. Help & Info
-```
 
 ## 🗃️ Environment Variables
 
@@ -516,13 +502,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Microsoft FarmVibes** for agricultural AI tools
 - **Kenyan agricultural extension** officers for domain expertise
 - **Local farming communities** for testing and feedback
-
-## 📞 Support & Contact
-
-- **Email**: support@uzimasmart.com
-- **Documentation**: [docs.uzimasmart.com](https://docs.uzimasmart.com)
-- **Community Forum**: [community.uzimasmart.com](https://community.uzimasmart.com)
-- **Emergency SMS**: +254700000000
 
 ---
 
