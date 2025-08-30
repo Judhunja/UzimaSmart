@@ -10,10 +10,10 @@ export function Hero() {
   
   const slides = [
     {
-      title: "Smart Carbon Tracking",
-      subtitle: "Blockchain-backed carbon credits for Kenyan communities",
-      image: "/images/carbon-tracking.jpg",
-      cta: "Track Carbon Credits"
+      title: "AI-Powered Climate Adaptation",
+      subtitle: "Smart climate insights for Kenyan communities",
+      image: "/images/climate-adaptation.jpg",
+      cta: "View Climate Data"
     },
     {
       title: "AI-Powered Agriculture",
@@ -107,8 +107,8 @@ export function Hero() {
               <div className="text-sm text-gray-200">Farmers Supported</div>
             </div>
             <div>
-              <div className="text-2xl md:text-3xl font-bold text-earth-200">2.5M</div>
-              <div className="text-sm text-gray-200">Carbon Credits Tracked</div>
+              <div className="text-2xl md:text-3xl font-bold text-earth-200">47</div>
+              <div className="text-sm text-gray-200">Counties Monitored</div>
             </div>
             <div>
               <div className="text-2xl md:text-3xl font-bold text-earth-200">15%</div>

@@ -18,10 +18,9 @@ export function Navigation() {
 
   const navigation = [
     { name: 'Dashboard', href: '/dashboard', icon: HomeIcon },
-    { name: 'Carbon Tracker', href: '/carbon', icon: ChartBarIcon },
-    { name: 'Agriculture', href: '/agriculture', icon: PuzzlePieceIcon },
-    { name: 'Energy', href: '/energy', icon: BoltIcon },
-    { name: 'Conservation', href: '/conservation', icon: ShieldCheckIcon },
+    { name: 'Climate Maps', href: '/maps', icon: ChartBarIcon },
+    { name: 'Community Reports', href: '/reports', icon: PuzzlePieceIcon },
+    { name: 'SMS/USSD', href: '/sms-ussd', icon: BoltIcon },
     { name: 'Settings', href: '/settings', icon: CogIcon },
   ]
 

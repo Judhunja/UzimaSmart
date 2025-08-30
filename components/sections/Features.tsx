@@ -12,10 +12,10 @@ import {
 export function Features() {
   const features = [
     {
-      name: 'Carbon Credit Tracking',
-      description: 'Blockchain-backed carbon credit tokenization with transparent verification and IPFS storage for immutable records.',
+      name: 'AI Climate Insights',
+      description: 'Smart climate adaptation strategies powered by AI, providing actionable recommendations for climate resilience.',
       icon: ChartBarIcon,
-      stats: '2.5M credits tracked',
+      stats: '47 counties covered',
       color: 'from-green-400 to-blue-500'
     },
     {

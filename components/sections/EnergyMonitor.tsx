@@ -17,7 +17,6 @@ interface EnergyMetrics {
   gridConsumption: number
   cost: number
   efficiency: number
-  carbonSaved: number
 }
 
 export function EnergyMonitor() {
@@ -27,8 +26,7 @@ export function EnergyMonitor() {
     solarProduction: 0,
     gridConsumption: 0,
     cost: 0,
-    efficiency: 0,
-    carbonSaved: 0
+    efficiency: 0
   })
   const [isLoading, setIsLoading] = useState(true)
   const [forecast, setForecast] = useState({
@@ -47,8 +45,7 @@ export function EnergyMonitor() {
           solarProduction: 12.4,
           gridConsumption: 33.4,
           cost: 687,
-          efficiency: 78,
-          carbonSaved: 23.5
+          efficiency: 78
         })
         setForecast({
           nextHour: 3.8,
@@ -307,12 +304,12 @@ export function EnergyMonitor() {
             <h3 className="text-2xl font-bold mb-4">Environmental Impact</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div>
-                <div className="text-3xl font-bold text-green-200 mb-2">{metrics.carbonSaved} kg</div>
-                <div className="text-green-100">CO₂ Saved Today</div>
+                <div className="text-3xl font-bold text-green-200 mb-2">{metrics.efficiency}%</div>
+                <div className="text-green-100">Energy Efficiency</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-blue-200 mb-2">156 trees</div>
-                <div className="text-blue-100">Equivalent Impact</div>
+                <div className="text-3xl font-bold text-blue-200 mb-2">156 kWh</div>
+                <div className="text-blue-100">Clean Energy Generated</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-yellow-200 mb-2">27%</div>
